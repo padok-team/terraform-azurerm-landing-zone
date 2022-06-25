@@ -4,7 +4,7 @@
 
 variable "private_network_access" {
   type        = bool
-  description = "Possible value Should you be able to access the resources from only a private network, warning you will need to configure your firewall to allow access to the resources, specifically for the state storage account"
+  description = "Should you be able to access the resources only from a private network? Warning, you will need to configure your firewall to allow access to the resources, specifically for the state storage account"
   default     = true
 }
 variable "tags" {
