@@ -23,7 +23,7 @@ output "resource_group_network" {
 #####                          STATE                          #####
 ###################################################################
 output "state_storage_account" {
-  value       = module.state[0].this
+  value       = module.state.this
   description = "Storage account for terraform state"
 }
 output "backup_storage_account" {
