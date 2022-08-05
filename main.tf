@@ -91,7 +91,7 @@ resource "azurerm_storage_container" "tfstate_container" {
 module "law" {
   ## The deployment of a log analytics workspace is optional (but enabled by default).
   count  = var.enable_law_logging ? 1 : 0
-  source = "git@github.com:padok-team/terraform-azurerm-logger.git?ref=v0.1.3"
+  source = "git@github.com:padok-team/terraform-azurerm-logger.git?ref=v0.1.4"
 
   resource_group_name     = var.log_analytics_workspace_resource_group_name != "" ? azurerm_resource_group.rg_law[0].name : var.resource_group_name
   resource_group_location = var.log_analytics_workspace_location != "" ? var.log_analytics_workspace_location : var.resource_group_location
