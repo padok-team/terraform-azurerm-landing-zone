@@ -30,10 +30,10 @@ module "core" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_backup"></a> [backup](#module\_backup) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.1.0 |
-| <a name="module_law"></a> [law](#module\_law) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.1.3 |
-| <a name="module_network"></a> [network](#module\_network) | git@github.com:padok-team/terraform-azurerm-network.git | v0.1.0 |
-| <a name="module_state"></a> [state](#module\_state) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.1.0 |
+| <a name="module_backup"></a> [backup](#module\_backup) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.2.0 |
+| <a name="module_law"></a> [law](#module\_law) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.1.4 |
+| <a name="module_network"></a> [network](#module\_network) | git@github.com:padok-team/terraform-azurerm-network.git | v0.2.1 |
+| <a name="module_state"></a> [state](#module\_state) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.2.0 |
 
 ## Inputs
 
@@ -52,12 +52,13 @@ module "core" {
 | <a name="input_log_analytics_workspace_name"></a> [log\_analytics\_workspace\_name](#input\_log\_analytics\_workspace\_name) | Name of the log analytics workspace. | `string` | `""` | no |
 | <a name="input_log_analytics_workspace_resource_group_name"></a> [log\_analytics\_workspace\_resource\_group\_name](#input\_log\_analytics\_workspace\_resource\_group\_name) | Name of the resource group where to create the log analytics workspace. | `string` | `""` | no |
 | <a name="input_network_resource_group_name"></a> [network\_resource\_group\_name](#input\_network\_resource\_group\_name) | Resource group where to create the virtual network. | `string` | `""` | no |
-| <a name="input_private_network_access"></a> [private\_network\_access](#input\_private\_network\_access) | Possible value Should you be able to access the resources from only a private network, warning you will need to configure your firewall to allow access to the resources, specifically for the state storage account | `bool` | `true` | no |
+| <a name="input_private_network_access"></a> [private\_network\_access](#input\_private\_network\_access) | Should you be able to access the resources only from a private network? Warning, you will need to configure your firewall to allow access to the resources, specifically for the state storage account | `bool` | `true` | no |
 | <a name="input_storage_account_location"></a> [storage\_account\_location](#input\_storage\_account\_location) | Location where to create the storage account for the state. | `string` | `""` | no |
 | <a name="input_storage_account_name"></a> [storage\_account\_name](#input\_storage\_account\_name) | The name for the storage account. | `string` | `""` | no |
 | <a name="input_storage_account_replication_type"></a> [storage\_account\_replication\_type](#input\_storage\_account\_replication\_type) | The replication type for the storage account. | `string` | `"GRS"` | no |
 | <a name="input_storage_account_resource_group_name"></a> [storage\_account\_resource\_group\_name](#input\_storage\_account\_resource\_group\_name) | Resource group where to create the storage account for the state. | `string` | `""` | no |
-| <a name="input_subnets"></a> [subnets](#input\_subnets) | The subnets that are used the virtual network. You can supply more than one subnet. | `map(string)` | <pre>{<br>  "default-subnet": "10.0.0.0/24"<br>}</pre> | no |
+| <a name="input_subnets"></a> [subnets](#input\_subnets) | The subnets that are used the virtual network. You can supply more than one subnet. | `map(string)` | `{}` | no |
+| <a name="input_subnets_delegations"></a> [subnets\_delegations](#input\_subnets\_delegations) | A map of delegations configurations for each subnets keys. | <pre>map(object({<br>    name = string<br>    service_delegation = object({<br>      name    = string<br>      actions = list(string)<br>    })<br>  }))</pre> | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to apply to the resources. | `map(string)` | `null` | no |
 | <a name="input_vnet_address_space"></a> [vnet\_address\_space](#input\_vnet\_address\_space) | The address space that is used the virtual network. You can supply more than one address space. | `list(string)` | <pre>[<br>  "10.0.0.0/8"<br>]</pre> | no |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name) | Name of the virtual network. | `string` | `"default-vnet"` | no |

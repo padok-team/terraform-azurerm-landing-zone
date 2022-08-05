@@ -129,15 +129,27 @@ variable "vnet_name" {
   type        = string
   default     = "default-vnet"
 }
+
 variable "vnet_address_space" {
   description = "The address space that is used the virtual network. You can supply more than one address space."
   type        = list(string)
   default     = ["10.0.0.0/8"]
 }
+
 variable "subnets" {
   description = "The subnets that are used the virtual network. You can supply more than one subnet."
   type        = map(string)
-  default = {
-    "default-subnet" = "10.0.0.0/24"
-  }
+  default     = {}
+}
+
+variable "subnets_delegations" {
+  description = "A map of delegations configurations for each subnets keys."
+  type = map(object({
+    name = string
+    service_delegation = object({
+      name    = string
+      actions = list(string)
+    })
+  }))
+  default = {}
 }
