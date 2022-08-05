@@ -27,7 +27,7 @@ output "state_storage_account" {
   description = "Storage account for terraform state"
 }
 output "backup_storage_account" {
-  value = module.backup[0].this
+  value       = module.backup[0].this
   description = "Storage account for backup"
 }
 
@@ -36,7 +36,7 @@ output "backup_storage_account" {
 #####                         LOGGING                         #####
 ###################################################################
 output "log_analytics_workspace" {
-  value = module.law[0].azurerm_log_analytics_workspace_id
+  value       = module.law[0].azurerm_log_analytics_workspace_id
   description = "Log analytics workspace"
 }
 
@@ -44,10 +44,10 @@ output "log_analytics_workspace" {
 #####                          Network                        #####
 ###################################################################
 output "network_vnet" {
-  value = module.network.vnet
+  value       = module.network.vnet
   description = "Virtual network"
 }
 output "network_subnet" {
-  value = module.network.subnets
+  value       = module.network.subnets
   description = "Subnet"
 }
