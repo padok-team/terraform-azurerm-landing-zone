@@ -1,0 +1,17 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: terraform-azurerm-landing-zone
+  description: Terraform module which creates Landing zone resources on Azure.
+  tags:
+    - "terraform"
+    - "azure"
+  annotations:
+    github.com/project-slug: padok-team/terraform-azurerm-landing-zone
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: module
+  system: terraform
+  owner: library-azure
+  lifecycle: awaiting-feedback
