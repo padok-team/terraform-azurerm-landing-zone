@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.1.0...v0.2.0) (2022-08-12)
+
+
+### Features
+
+* **network:** add subnet delegation configuration ([4a9d90e](https://github.com/padok-team/terraform-azurerm-landing-zone/commit/4a9d90e3d6668afd588c57ffee2c023584e14c4c))
+
 ## 0.1.0 (2022-07-29)
 
 
