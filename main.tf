@@ -218,7 +218,7 @@ module "backup" {
 ###################################################################
 
 module "network" {
-  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v0.1.0"
+  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v0.2.1"
 
   vnet_name      = var.vnet_name
   resource_group = var.network_resource_group_name != "" ? azurerm_resource_group.rg_network[0] : azurerm_resource_group.rg
