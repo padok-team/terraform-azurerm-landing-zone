@@ -142,6 +142,12 @@ variable "subnets" {
   default     = {}
 }
 
+variable "subnets_service_endpoints" {
+  description = "A map of service endpoint list for each subnet keys."
+  type        = map(list(string))
+  default     = {}
+}
+
 variable "subnets_delegations" {
   description = "A map of delegations configurations for each subnets keys."
   type = map(object({

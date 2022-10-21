@@ -32,7 +32,7 @@ module "core" {
 |------|--------|---------|
 | <a name="module_backup"></a> [backup](#module\_backup) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.2.0 |
 | <a name="module_law"></a> [law](#module\_law) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.1.4 |
-| <a name="module_network"></a> [network](#module\_network) | git@github.com:padok-team/terraform-azurerm-network.git | v0.2.1 |
+| <a name="module_network"></a> [network](#module\_network) | git@github.com:padok-team/terraform-azurerm-network.git | v0.3.0 |
 | <a name="module_state"></a> [state](#module\_state) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.2.0 |
 
 ## Inputs
@@ -59,6 +59,7 @@ module "core" {
 | <a name="input_storage_account_resource_group_name"></a> [storage\_account\_resource\_group\_name](#input\_storage\_account\_resource\_group\_name) | Resource group where to create the storage account for the state. | `string` | `""` | no |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | The subnets that are used the virtual network. You can supply more than one subnet. | `map(string)` | `{}` | no |
 | <a name="input_subnets_delegations"></a> [subnets\_delegations](#input\_subnets\_delegations) | A map of delegations configurations for each subnets keys. | <pre>map(object({<br>    name = string<br>    service_delegation = object({<br>      name    = string<br>      actions = list(string)<br>    })<br>  }))</pre> | `{}` | no |
+| <a name="input_subnets_service_endpoints"></a> [subnets\_service\_endpoints](#input\_subnets\_service\_endpoints) | A map of service endpoint list for each subnet keys. | `map(list(string))` | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to apply to the resources. | `map(string)` | `null` | no |
 | <a name="input_vnet_address_space"></a> [vnet\_address\_space](#input\_vnet\_address\_space) | The address space that is used the virtual network. You can supply more than one address space. | `list(string)` | <pre>[<br>  "10.0.0.0/8"<br>]</pre> | no |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name) | Name of the virtual network. | `string` | `"default-vnet"` | no |
