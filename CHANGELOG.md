@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.2.0...v0.3.0) (2022-10-21)
+
+
+### Features
+
+* **subnets:** add service endpoints configuration ([b20829d](https://github.com/padok-team/terraform-azurerm-landing-zone/commit/b20829d1424b3f39fbb807edbb7e2962e1a81b57))
+
 ## [0.2.0](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.1.0...v0.2.0) (2022-08-12)
 
 
