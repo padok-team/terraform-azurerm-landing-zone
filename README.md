@@ -1,6 +1,6 @@
-# CLOUD_PROVIDER TYPE Terraform module
+# Azure Landing Zone Terraform module
 
-Terraform module which creates **Landing zone** resources on **AZURERM**.
+Terraform module which creates a **Landing zone** on **Azure**.
 
 ## User Stories for this module
 
@@ -11,10 +11,10 @@ Terraform module which creates **Landing zone** resources on **AZURERM**.
 
 ```hcl
 module "core" {
-  source = "git@github.com:padok-team/terraform-azurerm-landing-zone.git?ref=v0.1.0"
+  source = "git@github.com:padok-team/terraform-azurerm-landing-zone.git?ref=v0.3.0"
 
   ## Common
-  private_network_access = false
+  private_network_access  = false
   resource_group_name     = "projectname"
   resource_group_location = "francecentral"
 }
@@ -23,7 +23,7 @@ module "core" {
 ## Examples
 
 - [Example of simple project](examples/example_of_simple_project/main.tf)
-- [Example of complexe project](examples/example_of_complexe_project/main.tf)
+- [Example of complex project](examples/example_of_complex_project/main.tf)
 
 <!-- BEGIN_TF_DOCS -->
 ## Modules
