@@ -56,13 +56,15 @@ resource "azurerm_resource_group" "rg_network" {
 #####                          STATE                          #####
 ###################################################################
 module "state" {
-  source = "git@github.com:padok-team/terraform-azurerm-storage-account.git?ref=v0.2.0"
+  # todo: update this when version is up
+  source = "git@github.com:padok-team/terraform-azurerm-storage-account.git?ref=fix/logger"
+
+  count = var.enable_storage_account ? 1 : 0
 
   resource_group = {
     name     = var.storage_account_resource_group_name != "" ? azurerm_resource_group.rg_state_storage_account[0].name : var.resource_group_name
     location = var.storage_account_location != "" ? var.storage_account_location : var.resource_group_location
   }
-  location                 = var.storage_account_location != "" ? var.storage_account_location : var.resource_group_location
   name                     = var.storage_account_name != "" ? var.storage_account_name : "${var.resource_group_name}state"
   account_replication_type = var.storage_account_replication_type
 
@@ -81,34 +83,39 @@ module "state" {
   ]
 }
 resource "azurerm_storage_container" "tfstate_container" {
+  count = var.enable_storage_account ? 1 : 0
+
   name                  = "tfstate"
-  storage_account_name  = module.state.this.name
+  storage_account_name  = module.state[0].this.name
   container_access_type = "private"
 }
+
 ###################################################################
 #####                         LOGGING                         #####
 ###################################################################
+
 module "law" {
   ## The deployment of a log analytics workspace is optional (but enabled by default).
   count  = var.enable_law_logging ? 1 : 0
-  source = "git@github.com:padok-team/terraform-azurerm-logger.git?ref=v0.1.4"
+  source = "git@github.com:padok-team/terraform-azurerm-logger.git?ref=v0.3.0"
 
   resource_group = {
     name     = var.log_analytics_workspace_resource_group_name != "" ? azurerm_resource_group.rg_law[0].name : var.resource_group_name,
     location = var.log_analytics_workspace_location != "" ? var.log_analytics_workspace_location : var.resource_group_location
   }
-  name = var.log_analytics_workspace_name != "" ? var.log_analytics_workspace_name : "${var.resource_group_name}-logging"
+  create_new_workspace = true
+  name                 = var.log_analytics_workspace_name != "" ? var.log_analytics_workspace_name : "${var.resource_group_name}-logging"
 
   retention_in_days = 30
 
-  resources_to_logs = [
-    module.network.vnet.id,
-  ]
-  resources_to_metrics = [
-    module.state.this.id,
-    module.backup[0].this.id,
-    module.network.vnet.id,
-  ]
+  resources_to_logs = concat(
+    var.enable_network ? [module.network[0].vnet.id] : [],
+  )
+  resources_to_metrics = concat(
+    var.enable_storage_account ? [module.state[0].this.id] : [],
+    var.enable_backup_storage_account ? [module.backup[0].this.id] : [],
+    var.enable_network ? [module.network[0].vnet.id] : [],
+  )
 
   tags = var.tags
 
@@ -191,13 +198,12 @@ module "backup" {
 
   ## The deployment of a backup storage account is optional (but enabled by default).
   count  = var.enable_backup_storage_account ? 1 : 0
-  source = "git@github.com:padok-team/terraform-azurerm-storage-account.git?ref=v0.2.0"
+  source = "git@github.com:padok-team/terraform-azurerm-storage-account.git?ref=fix/logger"
 
   resource_group = {
     name     = var.backup_storage_account_resource_group_name != "" ? azurerm_resource_group.rg_backup_storage_account[0].name : var.resource_group_name
     location = var.backup_storage_account_location != "" ? var.backup_storage_account_location : var.resource_group_location
   }
-  location                 = var.backup_storage_account_location != "" ? var.backup_storage_account_location : var.resource_group_location
   name                     = var.backup_storage_account_name != "" ? var.backup_storage_account_name : "${var.resource_group_name}backup"
   account_replication_type = var.backup_storage_account_replication_type
 
@@ -220,7 +226,8 @@ module "backup" {
 ###################################################################
 
 module "network" {
-  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v0.3.0"
+  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=fix/logger"
+  count  = var.enable_network ? 1 : 0
 
   vnet_name      = var.vnet_name
   resource_group = var.network_resource_group_name != "" ? azurerm_resource_group.rg_network[0] : azurerm_resource_group.rg
