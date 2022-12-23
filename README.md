@@ -30,10 +30,10 @@ module "core" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_backup"></a> [backup](#module\_backup) | git@github.com:padok-team/terraform-azurerm-storage-account.git | fix/logger |
+| <a name="module_backup"></a> [backup](#module\_backup) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.2.2 |
 | <a name="module_law"></a> [law](#module\_law) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.3.0 |
-| <a name="module_network"></a> [network](#module\_network) | git@github.com:padok-team/terraform-azurerm-network.git | fix/logger |
-| <a name="module_state"></a> [state](#module\_state) | git@github.com:padok-team/terraform-azurerm-storage-account.git | fix/logger |
+| <a name="module_network"></a> [network](#module\_network) | git@github.com:padok-team/terraform-azurerm-network.git | v0.3.1 |
+| <a name="module_state"></a> [state](#module\_state) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.2.2 |
 
 ## Inputs
 
