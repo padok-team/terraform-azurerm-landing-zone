@@ -27,6 +27,12 @@ variable "resource_group_location" {
 #####                          STATE                          #####
 ###################################################################
 
+variable "enable_storage_account" {
+  description = "Enable state storage account."
+  type        = bool
+  default     = true
+}
+
 variable "storage_account_resource_group_name" {
   description = "Resource group where to create the storage account for the state."
   type        = string
@@ -117,6 +123,12 @@ variable "backup_storage_account_replication_type" {
 ###################################################################
 #####                          VNET                           #####
 ###################################################################
+
+variable "enable_network" {
+  description = "Enable Network module."
+  type        = bool
+  default     = true
+}
 
 variable "network_resource_group_name" {
   description = "Resource group where to create the virtual network."

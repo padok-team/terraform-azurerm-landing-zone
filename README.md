@@ -30,10 +30,10 @@ module "core" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_backup"></a> [backup](#module\_backup) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.2.0 |
-| <a name="module_law"></a> [law](#module\_law) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.1.4 |
-| <a name="module_network"></a> [network](#module\_network) | git@github.com:padok-team/terraform-azurerm-network.git | v0.3.0 |
-| <a name="module_state"></a> [state](#module\_state) | git@github.com:padok-team/terraform-azurerm-storage-account.git | v0.2.0 |
+| <a name="module_backup"></a> [backup](#module\_backup) | git@github.com:padok-team/terraform-azurerm-storage-account.git | fix/logger |
+| <a name="module_law"></a> [law](#module\_law) | git@github.com:padok-team/terraform-azurerm-logger.git | v0.3.0 |
+| <a name="module_network"></a> [network](#module\_network) | git@github.com:padok-team/terraform-azurerm-network.git | fix/logger |
+| <a name="module_state"></a> [state](#module\_state) | git@github.com:padok-team/terraform-azurerm-storage-account.git | fix/logger |
 
 ## Inputs
 
@@ -47,6 +47,8 @@ module "core" {
 | <a name="input_backup_storage_account_resource_group_name"></a> [backup\_storage\_account\_resource\_group\_name](#input\_backup\_storage\_account\_resource\_group\_name) | Resource group where to create the storage account for the state. | `string` | `""` | no |
 | <a name="input_enable_backup_storage_account"></a> [enable\_backup\_storage\_account](#input\_enable\_backup\_storage\_account) | Enable backup storage account. | `bool` | `true` | no |
 | <a name="input_enable_law_logging"></a> [enable\_law\_logging](#input\_enable\_law\_logging) | Enable log analytics workspace logging. | `bool` | `true` | no |
+| <a name="input_enable_network"></a> [enable\_network](#input\_enable\_network) | Enable Network module. | `bool` | `true` | no |
+| <a name="input_enable_storage_account"></a> [enable\_storage\_account](#input\_enable\_storage\_account) | Enable state storage account. | `bool` | `true` | no |
 | <a name="input_log_analytics_workspace_data_export_name"></a> [log\_analytics\_workspace\_data\_export\_name](#input\_log\_analytics\_workspace\_data\_export\_name) | Name of the log analytics workspace data export rule. | `string` | `"default-export-law"` | no |
 | <a name="input_log_analytics_workspace_location"></a> [log\_analytics\_workspace\_location](#input\_log\_analytics\_workspace\_location) | Location of the resource group where to create the log analytics workspace. | `string` | `""` | no |
 | <a name="input_log_analytics_workspace_name"></a> [log\_analytics\_workspace\_name](#input\_log\_analytics\_workspace\_name) | Name of the log analytics workspace. | `string` | `""` | no |

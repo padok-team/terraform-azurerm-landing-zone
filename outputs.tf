@@ -23,11 +23,11 @@ output "resource_group_network" {
 #####                          STATE                          #####
 ###################################################################
 output "state_storage_account" {
-  value       = module.state.this
+  value       = var.enable_storage_account ? module.state[0].this : null
   description = "Storage account for terraform state"
 }
 output "backup_storage_account" {
-  value       = module.backup[0].this
+  value       = var.enable_backup_storage_account ? module.backup[0].this : null
   description = "Storage account for backup"
 }
 
@@ -36,7 +36,7 @@ output "backup_storage_account" {
 #####                         LOGGING                         #####
 ###################################################################
 output "log_analytics_workspace" {
-  value       = module.law[0].azurerm_log_analytics_workspace_id
+  value       = var.enable_law_logging ? module.law[0].azurerm_log_analytics_workspace_id : null
   description = "Log analytics workspace"
 }
 
@@ -44,10 +44,10 @@ output "log_analytics_workspace" {
 #####                          Network                        #####
 ###################################################################
 output "network_vnet" {
-  value       = module.network.vnet
+  value       = var.enable_network ? module.network[0].vnet : null
   description = "Virtual network"
 }
 output "network_subnet" {
-  value       = module.network.subnets
+  value       = var.enable_network ? module.network[0].subnets : null
   description = "Subnet"
 }
