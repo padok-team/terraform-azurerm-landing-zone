@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.3.0...v0.4.0) (2022-12-30)
+
+
+### Features
+
+* **variables:** add feature flags for each module default true ([c1fd994](https://github.com/padok-team/terraform-azurerm-landing-zone/commit/c1fd994106cbe33772b8fc3c03a75bcd83d13740))
+
+
+### Bug Fixes
+
+* **versions:** update remote modules versions ([0c8d654](https://github.com/padok-team/terraform-azurerm-landing-zone/commit/0c8d6542db0305fa4d670004affa1a180a49e27d))
+
 ## [0.3.0](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.2.0...v0.3.0) (2022-10-21)
 
 
