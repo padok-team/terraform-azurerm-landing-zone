@@ -45,6 +45,7 @@ module "core" {
 | <a name="input_backup_storage_account_name"></a> [backup\_storage\_account\_name](#input\_backup\_storage\_account\_name) | The name for the storage account. | `string` | `""` | no |
 | <a name="input_backup_storage_account_replication_type"></a> [backup\_storage\_account\_replication\_type](#input\_backup\_storage\_account\_replication\_type) | The replication type for the storage account. | `string` | `"GRS"` | no |
 | <a name="input_backup_storage_account_resource_group_name"></a> [backup\_storage\_account\_resource\_group\_name](#input\_backup\_storage\_account\_resource\_group\_name) | Resource group where to create the storage account for the state. | `string` | `""` | no |
+| <a name="input_create_resource_group"></a> [create\_resource\_group](#input\_create\_resource\_group) | Should resource group be created. | `bool` | `true` | no |
 | <a name="input_enable_backup_storage_account"></a> [enable\_backup\_storage\_account](#input\_enable\_backup\_storage\_account) | Enable backup storage account. | `bool` | `true` | no |
 | <a name="input_enable_law_logging"></a> [enable\_law\_logging](#input\_enable\_law\_logging) | Enable log analytics workspace logging. | `bool` | `true` | no |
 | <a name="input_enable_network"></a> [enable\_network](#input\_enable\_network) | Enable Network module. | `bool` | `true` | no |

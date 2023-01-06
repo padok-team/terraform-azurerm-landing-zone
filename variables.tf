@@ -13,10 +13,17 @@ variable "tags" {
   default     = null
 }
 
+variable "create_resource_group" {
+  description = "Should resource group be created."
+  type        = bool
+  default     = true
+}
+
 variable "resource_group_name" {
   description = "The name of the resource group where to deploy core resources."
   type        = string
 }
+
 variable "resource_group_location" {
   description = "The name of the resource group where to deploy core resources."
   type        = string
