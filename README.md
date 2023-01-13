@@ -11,7 +11,7 @@ Terraform module which creates a **Landing zone** on **Azure**.
 
 ```hcl
 module "core" {
-  source = "git@github.com:padok-team/terraform-azurerm-landing-zone.git?ref=v0.3.0"
+  source = "git@github.com:padok-team/terraform-azurerm-landing-zone.git"
 
   ## Common
   private_network_access  = false
