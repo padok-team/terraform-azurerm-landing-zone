@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.4.0...v0.4.1) (2023-01-13)
+
+
+### Bug Fixes
+
+* **variables:** set resource group creation optional default true ([2d84b7f](https://github.com/padok-team/terraform-azurerm-landing-zone/commit/2d84b7fae111946860ac00acbfe9af565016e3b5))
+
 ## [0.4.0](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.3.0...v0.4.0) (2022-12-30)
 
 
