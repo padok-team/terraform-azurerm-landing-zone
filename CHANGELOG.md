@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.4.1...v0.5.0) (2023-01-13)
+
+
+### Features
+
+* update azurerm provider version from 2 to 3 ([1b71dc7](https://github.com/padok-team/terraform-azurerm-landing-zone/commit/1b71dc711bccd994cfd1198789f7e3049d16a6f8))
+
 ### [0.0.1](https://github.com/padok-team/terraform-azurerm-landing-zone/compare/v0.4.1...v0.0.1) (2023-01-13)
 
 
