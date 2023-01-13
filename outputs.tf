@@ -1,5 +1,5 @@
 output "resource_group" {
-  value       = azurerm_resource_group.rg
+  value       = var.create_resource_group ? azurerm_resource_group.rg[0] : null
   description = "Resource group created"
 }
 output "resource_group_state_storage_account" {
