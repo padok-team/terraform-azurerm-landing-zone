@@ -227,7 +227,7 @@ module "backup" {
 ###################################################################
 
 module "network" {
-  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v0.4.0"
+  source = "git@github.com:padok-team/terraform-azurerm-network.git?ref=v0.4.1"
   count  = var.enable_network ? 1 : 0
 
   vnet_name      = var.vnet_name
@@ -239,4 +239,8 @@ module "network" {
   subnets_service_endpoints = var.subnets_service_endpoints
 
   tags = var.tags
+  depends_on = [
+    azurerm_resource_group.rg_network,
+    azurerm_resource_group.rg
+  ]
 }
