@@ -58,7 +58,7 @@ resource "azurerm_resource_group" "rg_network" {
 ###################################################################
 module "state" {
   # todo: update this when version is up
-  source = "git@github.com:padok-team/terraform-azurerm-storage-account.git?ref=v0.3.0"
+  source = "git@github.com:padok-team/terraform-azurerm-storage-account.git?ref=v0.3.1"
 
   count = var.enable_storage_account ? 1 : 0
 
@@ -199,7 +199,7 @@ module "backup" {
 
   ## The deployment of a backup storage account is optional (but enabled by default).
   count  = var.enable_backup_storage_account ? 1 : 0
-  source = "git@github.com:padok-team/terraform-azurerm-storage-account.git?ref=v0.3.0"
+  source = "git@github.com:padok-team/terraform-azurerm-storage-account.git?ref=v0.3.1"
 
   resource_group = {
     name     = var.backup_storage_account_resource_group_name != "" ? azurerm_resource_group.rg_backup_storage_account[0].name : var.resource_group_name
